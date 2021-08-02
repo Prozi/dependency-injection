@@ -9,5 +9,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "files": ["index.ts"]
+  "files": ["index.ts"],
+  "include": ["lib/**.ts", "lib/annotations/**.ts"]
 }
