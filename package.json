@@ -6,7 +6,8 @@
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "dependencies": {
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
     "@types/mocha": "^9.0.0",
@@ -14,12 +15,12 @@
     "chai": "^4.3.4",
     "mocha": "^9.0.3",
     "sinon": "^11.1.2",
-    "typescript": "^4.3.5",
     "typings": "^2.1.1"
   },
   "scripts": {
-    "build": "tsc",
-    "test": "yarn build && mocha build/test"
+    "build": "typings install && tsc",
+    "test": "yarn build && mocha build/test",
+    "postinstall": "yarn build"
   },
   "engines": {
     "node": ">= 0.10.0"
