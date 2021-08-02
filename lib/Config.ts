@@ -1,6 +1,5 @@
-
-var Config = {
-	useGetters: true
+const Config = {
+  useGetters: true,
 };
 
 export = Config;

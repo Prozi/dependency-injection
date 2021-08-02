@@ -1,8 +1,5 @@
+import ProvidedDependency = require("./ProvidedDependency");
 
-import ProvidedDependency = require('./ProvidedDependency');
-
-class PrototypeProvidedDependency extends ProvidedDependency {
-
-}
+class PrototypeProvidedDependency extends ProvidedDependency {}
 
 export = PrototypeProvidedDependency;

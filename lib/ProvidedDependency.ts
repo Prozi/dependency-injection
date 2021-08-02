@@ -1,16 +1,13 @@
-
 class ProvidedDependency {
+  protected instance: any;
 
-	protected instance: any;
+  constructor(instance: any) {
+    this.instance = instance;
+  }
 
-	constructor(instance: any) {
-		this.instance = instance;
-	}
-
-	getInstance(): any {
-		return this.instance;
-	}
-
+  getInstance(): any {
+    return this.instance;
+  }
 }
 
 export = ProvidedDependency;

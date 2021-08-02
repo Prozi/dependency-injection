@@ -1,32 +1,32 @@
 {
-  "name": "ts-dependency-injection",
-  "version": "1.2.2",
+  "name": "@jacekpietal/dependency-injection",
+  "version": "1.3.0",
   "author": "Tom Guillermin <tom@tomsdev.com>",
-  "description": "This TypeScript library allows you to easily declare and resolve dependencies, injecting them inyour classes attributes, using eye-candy TypeScript annotations.",
+  "description": "Dependency Injection using eye-candy TypeScript decorators.",
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "dependencies": {
-    "log4js": "^0.6.26",
-    "reflect-metadata": "^0.1.0"
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
-    "chai": "^3.0.0",
-    "mocha": "^2.2.5",
-    "sinon": "^1.15.4",
-    "typescript": "^1.7.5",
-    "typings": "^0.6.8"
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.4.10",
+    "chai": "^4.3.4",
+    "mocha": "^9.0.3",
+    "sinon": "^11.1.2",
+    "typescript": "^4.3.5",
+    "typings": "^2.1.1"
   },
   "scripts": {
-    "test": "mocha build/test",
-    "make-dev": "typings install; tsc;",
-    "prepublish": "typings install; tsc;"
+    "build": "tsc",
+    "test": "yarn build && mocha build/test"
   },
   "engines": {
     "node": ">= 0.10.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/toms-dev/TypeScriptDependencyInjection.git"
+    "url": "https://github.com/Prozi/dependency-injection.git"
   },
   "keywords": [
     "dependency",

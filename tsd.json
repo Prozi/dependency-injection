@@ -14,9 +14,6 @@
     "sinon/sinon.d.ts": {
       "commit": "625cd68fed45e3230393af71bcde1d36706f3d56"
     },
-    "log4js/log4js.d.ts": {
-      "commit": "a213223e1bdf40b280ebf765b42e7ef3da9394dc"
-    },
     "express/express.d.ts": {
       "commit": "a213223e1bdf40b280ebf765b42e7ef3da9394dc"
     },

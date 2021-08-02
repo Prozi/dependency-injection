@@ -3,7 +3,7 @@
  * Copyright(c) 2015 Tom Guillermin
  * MIT Licensed
  */
-'use strict';
+"use strict";
 
-import Deps = require('./lib/Deps');
+import Deps = require("./lib/Deps");
 export = Deps;

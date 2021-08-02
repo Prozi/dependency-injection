@@ -71,10 +71,10 @@ All you have to do is add all the values that participates in the context and ru
 To create the context and resolve the dependencies: 
 ```TypeScript
 	// Instantiate everything that has to
-	var dep = new MyDependency();
-	var instance = new MyClass();
+	const dep = new MyDependency();
+	const instance = new MyClass();
 	
-	var context = new Deps.Context();
+	const context = new Deps.Context();
 	
 	// Provide the values to the context
 	context.addValue(dep);
@@ -143,8 +143,8 @@ This library allows you to automatically instantiate and inject singleton withou
 
 First, declare your singleton:
 ```TypeScript
-@Deps.Singleton
-class MySingleton {
+@Deps.Injectable
+class MyInjectable {
 	public singletonMethod(): void {
         console.log("Hello!");
 	}
@@ -154,13 +154,13 @@ class MySingleton {
 Then, request it:
 ```TypeScript
 class MyClass {
-	@Deps.AutoInject(MySingleton)
-	public attr: MySingleton;
+	@Deps.AutoInject(MyInjectable)
+	public attr: MyInjectable;
 }
 ```
 And that's it! The singleton is available on every instance of `MyClass`:
 ```TypeScript
-	var a = new MyClass();
+	const a = new MyClass();
 	a.attr.singletonMethod();  // prints "Hello!" in the console
 ```
 
@@ -185,8 +185,8 @@ class SelfInjectingClass {
 	public dep: SelfInjectingClass;
 }
 
-var self1 = new SelfInjectingClass();
-var self2 = new SelfInjectingClass();
+const self1 = new SelfInjectingClass();
+const self2 = new SelfInjectingClass();
 
 context.addValue(self1, "a_friend");
 context.addValue(self2, "a_friend");
