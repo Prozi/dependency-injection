@@ -9,5 +9,12 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "files": ["index.ts"]
+  "files": [
+    "index.ts",
+    "test/ContextTest.ts",
+    "test/NamedInjectionTest.ts",
+    "test/PrototypeInjectionTest.ts",
+    "test/InjectableTest.ts",
+    "test-resources/UsingInjectable.ts"
+  ]
 }

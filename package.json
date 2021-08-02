@@ -17,8 +17,8 @@
     "sinon": "^11.1.2"
   },
   "scripts": {
-    "build": "tsc",
-    "test": "yarn build && mocha build/test",
+    "build": "tsc --build tsconfig.json",
+    "test": "tsc --build tsconfig.test.json && mocha build/test",
     "postinstall": "yarn build"
   },
   "engines": {
