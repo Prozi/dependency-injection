@@ -18,8 +18,7 @@
   },
   "scripts": {
     "build": "tsc --build tsconfig.json",
-    "test": "tsc --build tsconfig.test.json && mocha build/test",
-    "postinstall": "yarn build"
+    "test": "tsc --build tsconfig.test.json && mocha build/test"
   },
   "engines": {
     "node": ">= 0.10.0"
