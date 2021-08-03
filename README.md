@@ -54,10 +54,8 @@ Then, you can declare a dependency using the following annotation:
 
 ```TypeScript
 class MyClass {
-
-	@Deps.Injection(MyDependency)
-	public dep: MyDependency;
-
+  @Deps.Injection(MyDependency)
+  public dep: MyDependency;
 }
 ```
 
@@ -71,18 +69,17 @@ All you have to do is add all the values that participates in the context and ru
 To create the context and resolve the dependencies:
 
 ```TypeScript
-	// Instantiate everything that has to
-	const dep = new MyDependency();
-	const instance = new MyClass();
+// Instantiate everything that has to
+const dep = new MyDependency();
+const instance = new MyClass();
+const context = new Deps.Context();
 
-	const context = new Deps.Context();
+// Provide the values to the context
+context.addValue(dep);
+context.addValue(instance);
 
-	// Provide the values to the context
-	context.addValue(dep);
-	context.addValue(instance);
-
-	// Resolve all the dependencies
-	context.resolve();
+// Resolve all the dependencies
+context.resolve();
 ```
 
 The dependency matching is performed here on the prototypes, but it can also be performed on names.
@@ -93,28 +90,28 @@ You have the ability to give names to dependencies to avoid collisions. You have
 
 ```TypeScript
 class MyClass {
-	@Deps.NamedInjection("some_name", MyDependency)
-	private attr: MyDependency;
+  @Deps.NamedInjection("some_name", MyDependency)
+  private attr: MyDependency;
 }
 ```
 
 Then, you can add the values to the context by specifying their name:
 
 ```TypeScript
-	context.addNamedValue(new MyDependency(), "some_name");
-	// or an equivalent syntax:
-	context.addValue(new MyDependency(), "some_name");
+context.addNamedValue(new MyDependency(), "some_name");
+// or an equivalent syntax:
+context.addValue(new MyDependency(), "some_name");
 ```
 
 ```TypeScript
 class MyClass {
-	@Deps.NamedInjection("my dep", MyDependency)
-	public dep: MyDependency;
+  @Deps.NamedInjection("my dep", MyDependency)
+  public dep: MyDependency;
 }
 
 // [...] later in the code:
-	context.addValue(dep, "my dep");
-	context.addValue(instance, "an instance");
+context.addValue(dep, "my dep");
+context.addValue(instance, "an instance");
 ```
 
 ## Inheritance
@@ -125,7 +122,7 @@ _Example_
 
 ```TypeScript
 class Dep2 extends MyDependency {
-	// empty class
+  // empty class
 }
 ```
 
@@ -137,12 +134,12 @@ You can inject primitive types by name the same way you do with class instances.
 The only thing you have to do is adding them to the context:
 
 ```TypeScript
-	context.addValue(1, "attr1");				// number
-	context.addValue("message", "attr2");		// string
-	context.addValue(true, "attr3");			// boolean
-	context.addValue(function() {				// function
-		console.log("Hello, I was injected !");
-	}, "attr4");
+context.addValue(1, "attr1");        // number
+context.addValue("message", "attr2");    // string
+context.addValue(true, "attr3");      // boolean
+context.addValue(function() {        // function
+  console.log("Hello, I was injected !");
+}, "attr4");
 ```
 
 **Note**: As primitive types do not have a prototype, there is currently no way of directly specifying its type in the annotation. I'm currently working on a solution using _strings_ parameters (like this: `@Deps.NamedInjection("attr1", "number")`) but this is experimental.
@@ -157,9 +154,9 @@ First, declare your singleton:
 ```TypeScript
 @Deps.Injectable
 class MyInjectable {
-	public singletonMethod(): void {
-        console.log("Hello!");
-	}
+  public singletonMethod(): void {
+	console.log("Hello!");
+  }
 }
 ```
 
@@ -167,16 +164,16 @@ Then, request it:
 
 ```TypeScript
 class MyClass {
-	@Deps.AutoInject(MyInjectable)
-	public attr: MyInjectable;
+  @Deps.AutoInject(MyInjectable)
+  public attr: MyInjectable;
 }
 ```
 
 And that's it! The singleton is available on every instance of `MyClass`:
 
 ```TypeScript
-	const a = new MyClass();
-	a.attr.singletonMethod();  // prints "Hello!" in the console
+const a = new MyClass();
+a.attr.singletonMethod();  // prints "Hello!" in the console
 ```
 
 ### Strict resolution
@@ -200,8 +197,8 @@ The benefit of this is that it will **allow** you to have **two instances with t
 
 ```TypeScript
 class SelfInjectingClass {
-	@Deps.NamedInjection("a_friend", SelfInjectingClass)
-	public dep: SelfInjectingClass;
+  @Deps.NamedInjection("a_friend", SelfInjectingClass)
+  public dep: SelfInjectingClass;
 }
 
 const self1 = new SelfInjectingClass();
@@ -209,14 +206,14 @@ const self2 = new SelfInjectingClass();
 
 context.addValue(self1, "a_friend");
 context.addValue(self2, "a_friend");
-context.resolve(); 	// no error! :)
+context.resolve();   // no error! :)
 ```
 
 **Note.** It is also possible to use an non-named injection annotation in the class declaration:
 
 ```TypeScript
-	@Deps.Injection(SelfInjectingClass)
-	public dep: SelfInjectingClass;
+@Deps.Injection(SelfInjectingClass)
+public dep: SelfInjectingClass;
 ```
 
 ## todo list
@@ -224,6 +221,7 @@ context.resolve(); 	// no error! :)
 - ~~named dependencies~~
 - ~~strict context resolution (optional)~~
 - ~~unit tests~~
+- ~~fix log4js dependency blocking webpack usage~~
 - primitive injection by type declaration ("number"/"string"/"boolean")
 - ~~singleton dependency magic injection
 - context extension : be able to "copy" a context, and add values into this "child" context, without reaffecting
