@@ -19,7 +19,7 @@ export function NamedInjection(name, typeToInject?) {
   };
 }
 
-export function AutoInject(dependencyClass) {
+export function Inject(dependencyClass) {
   if (!dependencyClass) throw new Error("Missing parameter!");
   return function (prototype, propertyKey) {
     // We define this as a safeguard if the user doesn't call @DirectLoad

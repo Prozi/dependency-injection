@@ -10,7 +10,7 @@ export class MyInjectable {
 }
 
 export class MyClass {
-  @Deps.AutoInject(MyInjectable)
+  @Deps.Inject(MyInjectable)
   public attr: MyInjectable;
 
   public myMethod(): void {
@@ -20,7 +20,7 @@ export class MyClass {
 
 @Deps.DirectLoad
 export class MyClassWithDirectLoad {
-  @Deps.AutoInject(MyInjectable)
+  @Deps.Inject(MyInjectable)
   public attr: MyInjectable; // = null;
 
   public myMethod(): void {

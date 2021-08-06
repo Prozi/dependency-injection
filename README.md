@@ -4,7 +4,8 @@
 
 This TypeScript library allows you to easily declare and resolve dependencies, injecting them in your classes attributes, using eye-candy TypeScript annotations.
 
-_Author:_ Tom Guillermin - [http://www.tomsdev.com](http://www.tomsdev.com)
+_Original Author:_ Tom Guillermin - [https://github.com/toms-dev](https://github.com/toms-dev)
+_Maintainer:_ Jacek Pietal [https://github.com/Prozi](https://github.com/Prozi)
 
 [(Shortcut to "Getting started" section)](#getting-started)
 
@@ -25,7 +26,7 @@ This library is primarily aimed at framework developers but any programmer that 
 - **Concise**. Using TypeScript annotations will be a real pleasure for your eyes. I promise.
 - **Expressive**. By declaring multiple contexts, you have fine control of the resolution process.
 - **Safe**. The solver automatically detects ambiguous contexts and prevent unexpected behaviors.
-- **Forgiving.** Even if you forget an annotation (eg. @DirectLoad), the framework will warn you and find a way around to make things work.
+- **Forgiving**. Even if you forget an annotation (eg. @DirectLoad), the framework will warn you and find a way around to make things work.
 
 ## umh... dependency injection?
 
@@ -164,7 +165,7 @@ Then, request it:
 
 ```TypeScript
 class MyClass {
-  @Deps.AutoInject(MyInjectable)
+  @Deps.Inject(MyInjectable)
   public attr: MyInjectable;
 }
 ```
