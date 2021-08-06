@@ -1,11 +1,11 @@
-import ProvidedDependency = require("./ProvidedDependency");
+import ProvidedDependency from "./ProvidedDependency";
 
 /**
  * This class represents an injection request based on the prototype.
  * This means that any provided instance that is using the prototype in the request
  * will be matched.
  */
-class BaseInjectionRequest {
+export default class BaseInjectionRequest {
   protected targetPrototype: Object;
   private propertyKey: string;
   private loadingCallback: Function;
@@ -40,5 +40,3 @@ class BaseInjectionRequest {
     return requestClassName + "@" + targetClassName + "." + this.propertyKey;
   }
 }
-
-export = BaseInjectionRequest;

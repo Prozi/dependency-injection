@@ -4,10 +4,30 @@
 
 This TypeScript library allows you to easily declare and resolve dependencies, injecting them in your classes attributes, using eye-candy TypeScript annotations.
 
-_Original Author:_ Tom Guillermin - [https://github.com/toms-dev](https://github.com/toms-dev)
-_Maintainer:_ Jacek Pietal [https://github.com/Prozi](https://github.com/Prozi)
+- _Author:_ Tom Guillermin - [https://github.com/toms-dev](https://github.com/toms-dev)
+- _Maintainer:_ Jacek Pietal [https://github.com/Prozi](https://github.com/Prozi)
 
 [(Shortcut to "Getting started" section)](#getting-started)
+
+## Usage example
+```typescript
+import { Injectable, Inject } from '@jacekpietal/dependency-injection';
+
+@Injectable
+class TestService {
+    foo: string = 'bar'
+}
+
+class TestComponent {
+    @Inject(TestService) service: TestService;
+
+    baz: string;
+
+    constructor() {
+        this.baz = this.service.foo; // 'bar'
+    }
+}
+```
 
 ## Requirements
 
@@ -46,7 +66,7 @@ $ npm install @jacekpietal/dependency-injection --save
 Then import the library in your TypeScript code using:
 
 ```TypeScript
-import Deps = require('@jacekpietal/dependency-injection');
+import DI from '@jacekpietal/dependency-injection';
 ```
 
 ### Manual context resolution
@@ -55,7 +75,7 @@ Then, you can declare a dependency using the following annotation:
 
 ```TypeScript
 class MyClass {
-  @Deps.Injection(MyDependency)
+  @DI.Injection(MyDependency)
   public dep: MyDependency;
 }
 ```
@@ -73,7 +93,7 @@ To create the context and resolve the dependencies:
 // Instantiate everything that has to
 const dep = new MyDependency();
 const instance = new MyClass();
-const context = new Deps.Context();
+const context = new DI.Context();
 
 // Provide the values to the context
 context.addValue(dep);
@@ -91,7 +111,7 @@ You have the ability to give names to dependencies to avoid collisions. You have
 
 ```TypeScript
 class MyClass {
-  @Deps.NamedInjection("some_name", MyDependency)
+  @DI.NamedInjection("some_name", MyDependency)
   private attr: MyDependency;
 }
 ```
@@ -106,7 +126,7 @@ context.addValue(new MyDependency(), "some_name");
 
 ```TypeScript
 class MyClass {
-  @Deps.NamedInjection("my dep", MyDependency)
+  @DI.NamedInjection("my dep", MyDependency)
   public dep: MyDependency;
 }
 
@@ -143,7 +163,7 @@ context.addValue(function() {        // function
 }, "attr4");
 ```
 
-**Note**: As primitive types do not have a prototype, there is currently no way of directly specifying its type in the annotation. I'm currently working on a solution using _strings_ parameters (like this: `@Deps.NamedInjection("attr1", "number")`) but this is experimental.
+**Note**: As primitive types do not have a prototype, there is currently no way of directly specifying its type in the annotation. I'm currently working on a solution using _strings_ parameters (like this: `@DI.NamedInjection("attr1", "number")`) but this is experimental.
 
 ### Automatic injection for singletons
 
@@ -153,7 +173,7 @@ This library allows you to automatically instantiate and inject singleton withou
 First, declare your singleton:
 
 ```TypeScript
-@Deps.Injectable
+@DI.Injectable
 class MyInjectable {
   public singletonMethod(): void {
 	console.log("Hello!");
@@ -165,7 +185,7 @@ Then, request it:
 
 ```TypeScript
 class MyClass {
-  @Deps.Inject(MyInjectable)
+  @DI.Inject(MyInjectable)
   public attr: MyInjectable;
 }
 ```
@@ -198,7 +218,7 @@ The benefit of this is that it will **allow** you to have **two instances with t
 
 ```TypeScript
 class SelfInjectingClass {
-  @Deps.NamedInjection("a_friend", SelfInjectingClass)
+  @DI.NamedInjection("a_friend", SelfInjectingClass)
   public dep: SelfInjectingClass;
 }
 
@@ -213,7 +233,7 @@ context.resolve();   // no error! :)
 **Note.** It is also possible to use an non-named injection annotation in the class declaration:
 
 ```TypeScript
-@Deps.Injection(SelfInjectingClass)
+@DI.Injection(SelfInjectingClass)
 public dep: SelfInjectingClass;
 ```
 
@@ -223,9 +243,9 @@ public dep: SelfInjectingClass;
 - ~~strict context resolution (optional)~~
 - ~~unit tests~~
 - ~~fix log4js dependency blocking webpack usage~~
+- ~~singleton dependency magic injection~~
 - primitive injection by type declaration ("number"/"string"/"boolean")
-- ~~singleton dependency magic injection
 - context extension : be able to "copy" a context, and add values into this "child" context, without reaffecting
-  values from the parent context. Example: server context -> match context -> player context
+- values from the parent context. Example: server context -> match context -> player context
 - Documentation : example of Annotation wrapping for framework developpers.
 - register user-created singletons

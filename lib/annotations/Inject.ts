@@ -1,9 +1,9 @@
 import "reflect-metadata";
-import InjectionRequest = require("../InjectionRequest");
-import PrototypeInjectionRequest = require("../PrototypeInjectionRequest");
-import NamedInjectionRequest = require("../NamedInjectionRequest");
-import Injectable = require("../Injectable");
-import Config = require("../Config");
+import InjectionRequest from "../InjectionRequest";
+import PrototypeInjectionRequest from "../PrototypeInjectionRequest";
+import NamedInjectionRequest from "../NamedInjectionRequest";
+import Injectable from "../Injectable";
+import Config from "../Config";
 
 export function Injection(typeToInject) {
   return function (target: Object, propertyKey: string | symbol) {

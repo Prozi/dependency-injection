@@ -1,8 +1,8 @@
-import DependencyInjector = require("./Injector");
-import ProvidedDependency = require("./ProvidedDependency");
-import PrototypeProvidedDependency = require("./PrototypeProvidedDependency");
-import NamedProvidedDependency = require("./NamedProvidedDependency");
-import InjectionRequest = require("./InjectionRequest");
+import DependencyInjector from "./Injector";
+import ProvidedDependency from "./ProvidedDependency";
+import PrototypeProvidedDependency from "./PrototypeProvidedDependency";
+import NamedProvidedDependency from "./NamedProvidedDependency";
+import InjectionRequest from "./InjectionRequest";
 
 /**
  * Data class to hold the link between request and instance
@@ -17,7 +17,7 @@ class InjectionRequestInstance {
   }
 }
 
-class DependencyInjectionContext {
+export default class DependencyInjectionContext {
   private providedDependencies: ProvidedDependency[];
 
   private injector: DependencyInjector;
@@ -77,5 +77,3 @@ class DependencyInjectionContext {
     this.resolve(true);
   }
 }
-
-export = DependencyInjectionContext;

@@ -1,4 +1,4 @@
-class Injectable<T> {
+export default class Injectable<T> {
   private static classes: any[] = [];
 
   private factory: new () => T;
@@ -38,5 +38,3 @@ class Injectable<T> {
     return matching[0];
   }
 }
-
-export = Injectable;

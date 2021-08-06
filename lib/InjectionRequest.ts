@@ -1,8 +1,6 @@
-import ProvidedDependency = require("./ProvidedDependency");
+import ProvidedDependency from "./ProvidedDependency";
 
-interface InjectionRequest {
+export default interface InjectionRequest {
   matches(value: ProvidedDependency): boolean;
   load(target: ProvidedDependency, value: ProvidedDependency): void;
 }
-
-export = InjectionRequest;

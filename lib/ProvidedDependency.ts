@@ -1,4 +1,4 @@
-class ProvidedDependency {
+export default class ProvidedDependency {
   protected instance: any;
 
   constructor(instance: any) {
@@ -9,5 +9,3 @@ class ProvidedDependency {
     return this.instance;
   }
 }
-
-export = ProvidedDependency;

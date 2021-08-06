@@ -1,8 +1,8 @@
 import "reflect-metadata";
-import InjectionRequest = require("./InjectionRequest");
-import ProvidedDependency = require("./ProvidedDependency");
+import InjectionRequest from "./InjectionRequest";
+import ProvidedDependency from "./ProvidedDependency";
 
-class DependencyInjector {
+export default class DependencyInjector {
   static readonly DEP_INJ_REQUESTS_KEY: string = "dependencyInjection.requests";
 
   public static getRequests(target: ProvidedDependency): InjectionRequest[] {
@@ -25,7 +25,7 @@ class DependencyInjector {
     deps: ProvidedDependency[],
     strict: boolean
   ): void {
-    const matchingDeps: ProvidedDependency[] = [];
+    const matchingDI: ProvidedDependency[] = [];
 
     for (const prop in deps) {
       if (!deps.hasOwnProperty(prop)) continue;
@@ -37,19 +37,19 @@ class DependencyInjector {
 
       // Check if the dependency matches the request
       if (request.matches(dep)) {
-        matchingDeps.push(dep);
+        matchingDI.push(dep);
       }
     }
 
     // Throw an error if more than one dependency matches the request, as the context is ambiguous.
-    if (matchingDeps.length > 1) {
+    if (matchingDI.length > 1) {
       throw new Error(
-        `Ambiguous context with ${matchingDeps.length} matching dependencies.`
+        `Ambiguous context with ${matchingDI.length} matching dependencies.`
       );
     }
 
     // Throw an error or warn if no provided dependency fulfills the request
-    if (matchingDeps.length === 0) {
+    if (matchingDI.length === 0) {
       const message = `${request.toString()} was not resolved.`;
 
       if (strict) {
@@ -57,10 +57,8 @@ class DependencyInjector {
       }
     }
 
-    const injectedDep = matchingDeps[0];
+    const injectedDep = matchingDI[0];
 
     request.load(providedInstance, injectedDep);
   }
 }
-
-export = DependencyInjector;

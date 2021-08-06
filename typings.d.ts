@@ -1,4 +1,4 @@
-declare module 'ts-dependency-injection' {
-	import main = require('index');
-	export = main;
+declare module "@jacekpietal/dependency-injection" {
+  import main = require("index");
+  export = main;
 }

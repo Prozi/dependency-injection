@@ -1,9 +1,8 @@
 /*!
- * typescript-dependency-injection
- * Copyright(c) 2015 Tom Guillermin
+ * @jacekpietal/dependency-injection
  * MIT Licensed
  */
+
 "use strict";
 
-import Deps = require("./lib/Deps");
-export = Deps;
+export * from "./lib/DI";

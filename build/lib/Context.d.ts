@@ -1,4 +1,4 @@
-declare class DependencyInjectionContext {
+export default class DependencyInjectionContext {
     private providedDependencies;
     private injector;
     private requests;
@@ -9,4 +9,3 @@ declare class DependencyInjectionContext {
     resolve(strict?: boolean): void;
     resolveStrict(): void;
 }
-export = DependencyInjectionContext;

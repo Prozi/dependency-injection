@@ -1,4 +1,4 @@
-declare const Config: {
+export declare const Config: {
     useGetters: boolean;
 };
-export = Config;
+export default Config;

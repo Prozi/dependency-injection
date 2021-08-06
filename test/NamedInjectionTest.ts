@@ -1,6 +1,6 @@
-import chai = require("chai");
-import sinon = require("sinon");
-import Deps = require("../index");
+import chai from "chai";
+import sinon from "sinon";
+import * as DI from "../index";
 
 const assert = chai.assert;
 
@@ -8,46 +8,46 @@ class Dependency1 {}
 class Dependency2 {}
 
 class MyClass {
-  @Deps.NamedInjection("my_dep1", Dependency1) // with explicit prototype
+  @DI.NamedInjection("my_dep1", Dependency1) // with explicit prototype
   public dep1: Dependency1;
 
-  @Deps.NamedInjection("my_dep2") // no explicit prototype
+  @DI.NamedInjection("my_dep2") // no explicit prototype
   public dep2: Dependency2;
 }
 
 class MyChildClass extends MyClass {}
 
 class MyClassUsingPrototypeInjection {
-  @Deps.Injection(Dependency1) // no name here
+  @DI.Injection(Dependency1) // no name here
   public dep: Dependency1;
 }
 
 class SelfInjectingClass {
-  @Deps.NamedInjection("a_friend", SelfInjectingClass)
+  @DI.NamedInjection("a_friend", SelfInjectingClass)
   public dep: SelfInjectingClass;
 }
 
 class AnyClass {
-  @Deps.NamedInjection("attr1")
+  @DI.NamedInjection("attr1")
   public attr1: any;
 
-  @Deps.NamedInjection("attr2")
+  @DI.NamedInjection("attr2")
   public attr2: any;
 
-  @Deps.NamedInjection("attr3")
+  @DI.NamedInjection("attr3")
   public attr3: any;
 
-  @Deps.NamedInjection("attr4")
+  @DI.NamedInjection("attr4")
   public attr4: any;
 }
 
 describe("NamedInjection unit test", () => {
-  let context: Deps.Context,
+  let context: DI.Context,
     instance: MyClass,
     dep1: Dependency1,
     dep2: Dependency2;
   beforeEach(() => {
-    context = new Deps.Context();
+    context = new DI.Context();
     instance = new MyClass();
     dep1 = new Dependency1();
     dep2 = new Dependency2();

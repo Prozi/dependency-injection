@@ -1,8 +1,6 @@
-import InjectableClass = require("../Injectable");
+import InjectableClass from "../Injectable";
 
-function Injectable(constructor) {
+export default function Injectable(constructor) {
   // Register it in the singleton registry
   InjectableClass.addInjectable(constructor);
 }
-
-export = Injectable;

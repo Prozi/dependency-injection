@@ -1,5 +1,5 @@
-import Deps = require("../index");
-export import Config = Deps.Config;
+import * as DI from "../index";
+export import Config = DI.Config;
 export declare class MyInjectable {
     singletonMethod(): void;
 }

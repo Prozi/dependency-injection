@@ -1,6 +1,6 @@
-import ProvidedDependency = require("./ProvidedDependency");
+import ProvidedDependency from "./ProvidedDependency";
 
-class NamedProvidedDependency extends ProvidedDependency {
+export default class NamedProvidedDependency extends ProvidedDependency {
   private name: string;
 
   constructor(instance: any, name: string) {
@@ -12,5 +12,3 @@ class NamedProvidedDependency extends ProvidedDependency {
     return this.name;
   }
 }
-
-export = NamedProvidedDependency;

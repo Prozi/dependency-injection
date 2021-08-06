@@ -1,5 +1,5 @@
-import chai = require("chai");
-import Deps = require("../index");
+import chai from "chai";
+import * as DI from "../index";
 
 const assert = chai.assert;
 
@@ -8,24 +8,24 @@ class Dependency2 {}
 class SubDependency1 extends Dependency1 {}
 
 class MyClass {
-  @Deps.Injection(Dependency1)
+  @DI.Injection(Dependency1)
   public dep: Dependency1;
 }
 
 class MyChildClass extends MyClass {}
 
 class SelfInjectingClass {
-  @Deps.Injection(SelfInjectingClass)
+  @DI.Injection(SelfInjectingClass)
   public dep: SelfInjectingClass;
 }
 
 describe("PrototypeInjection unit test", () => {
-  let context: Deps.Context,
+  let context: DI.Context,
     instance: MyClass,
     dep1: Dependency1,
     dep2: Dependency2;
   beforeEach(() => {
-    context = new Deps.Context();
+    context = new DI.Context();
     instance = new MyClass();
     dep1 = new Dependency1();
     dep2 = new Dependency2();

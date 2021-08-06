@@ -1,14 +1,14 @@
-import ProvidedDependency = require("./ProvidedDependency");
-import NamedProvidedDependency = require("./NamedProvidedDependency");
-import InjectionRequest = require("./InjectionRequest");
-import BaseInjectionRequest = require("./BaseInjectionRequest");
+import ProvidedDependency from "./ProvidedDependency";
+import NamedProvidedDependency from "./NamedProvidedDependency";
+import InjectionRequest from "./InjectionRequest";
+import BaseInjectionRequest from "./BaseInjectionRequest";
 
 /**
  * This class represents an injection request based on the prototype.
  * This means that any provided instance that is using the prototype in the request
  * will be matched.
  */
-class NamedInjectionRequest
+export default class NamedInjectionRequest
   extends BaseInjectionRequest
   implements InjectionRequest
 {
@@ -55,5 +55,3 @@ class NamedInjectionRequest
     return super.toString() + "=" + suffix;
   }
 }
-
-export = NamedInjectionRequest;

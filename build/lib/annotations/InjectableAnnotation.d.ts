@@ -1,2 +1,1 @@
-declare function Injectable(constructor: any): void;
-export = Injectable;
+export default function Injectable(constructor: any): void;

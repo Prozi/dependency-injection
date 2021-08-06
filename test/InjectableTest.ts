@@ -1,6 +1,5 @@
-import chai = require("chai");
-import sinon = require("sinon");
-import Deps = require("../index");
+import chai from "chai";
+import * as DI from "../index";
 
 const assert = chai.assert;
 
@@ -27,7 +26,7 @@ describe("Injectable unit test", () => {
   describe("should use the Config", () => {
     it("should load the same config object", () => {
       const test = require("../test-resources/UsingInjectable");
-      assert.equal(test.Config, Deps.Config, "Configs should be the same");
+      assert.equal(test.Config, DI.Config, "Configs should be the same");
     });
     describe("useGetters", () => {
       describe("useGetters = false", () => {
@@ -35,7 +34,7 @@ describe("Injectable unit test", () => {
         let warningSpy;
 
         before(() => {
-          Deps.Config.useGetters = false;
+          DI.Config.useGetters = false;
           test = require("../test-resources/UsingInjectable");
         });
 
@@ -68,7 +67,7 @@ describe("Injectable unit test", () => {
       describe("useGetter = true", () => {
         let test;
         before(() => {
-          Deps.Config.useGetters = true;
+          DI.Config.useGetters = true;
           test = require("../test-resources/UsingInjectable");
         });
 

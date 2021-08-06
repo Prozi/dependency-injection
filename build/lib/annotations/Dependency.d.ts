@@ -1,2 +1,1 @@
-declare function Dependency(constructor: any): void;
-export = Dependency;
+export default function Dependency(constructor: any): void;

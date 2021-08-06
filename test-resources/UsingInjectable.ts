@@ -1,8 +1,8 @@
-import Deps = require("../index");
+import * as DI from "../index";
 
-export import Config = Deps.Config;
+export import Config = DI.Config;
 
-@Deps.Injectable
+@DI.Injectable
 export class MyInjectable {
   public singletonMethod(): void {
     console.log("Hello!");
@@ -10,7 +10,7 @@ export class MyInjectable {
 }
 
 export class MyClass {
-  @Deps.Inject(MyInjectable)
+  @DI.Inject(MyInjectable)
   public attr: MyInjectable;
 
   public myMethod(): void {
@@ -18,9 +18,9 @@ export class MyClass {
   }
 }
 
-@Deps.DirectLoad
+@DI.DirectLoad
 export class MyClassWithDirectLoad {
-  @Deps.Inject(MyInjectable)
+  @DI.Inject(MyInjectable)
   public attr: MyInjectable; // = null;
 
   public myMethod(): void {

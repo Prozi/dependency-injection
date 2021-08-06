@@ -1,5 +1,3 @@
-function Dependency(constructor) {
+export default function Dependency(constructor) {
   throw new Error("Deprecated");
 }
-
-export = Dependency;

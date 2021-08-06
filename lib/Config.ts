@@ -1,5 +1,5 @@
-const Config = {
+export const Config = {
   useGetters: true,
 };
 
-export = Config;
+export default Config;
