@@ -6,7 +6,7 @@
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "dependencies": {
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.14"
   },
   "devDependencies": {
     "@types/mocha": "^9.0.0",
