@@ -99,7 +99,7 @@ export function DirectLoad(constructor): any {
 function addInjectionRequest(
   targetPrototype,
   injectionPrototype,
-  request: InjectionRequest
+  request: InjectionRequest,
 ) {
   const protoName = targetPrototype.constructor.name;
   const injectionName = injectionPrototype
@@ -122,26 +122,26 @@ function addInjectionRequest(
   } else {
     protoInjectionRequests = Reflect.getMetadata(
       DEP_INJ_REQUESTS_KEY,
-      targetPrototype
+      targetPrototype,
     );
   }
   protoInjectionRequests.push(request);
   Reflect.defineMetadata(
     DEP_INJ_REQUESTS_KEY,
     protoInjectionRequests,
-    targetPrototype
+    targetPrototype,
   );
 }
 
 function addPrototypeInjectionRequest(
   targetPrototype,
   injectionPrototype,
-  propertyKey
+  propertyKey,
 ) {
   const request = new PrototypeInjectionRequest(
     propertyKey,
     targetPrototype,
-    injectionPrototype
+    injectionPrototype,
   );
   addInjectionRequest(targetPrototype, injectionPrototype, request);
 }
@@ -150,13 +150,13 @@ function addNamedInjectionRequest(
   targetPrototype,
   name: string,
   propertyKey: string | symbol,
-  injectionPrototype
+  injectionPrototype,
 ) {
   const request = new NamedInjectionRequest(
     <string>propertyKey,
     targetPrototype,
     name,
-    injectionPrototype
+    injectionPrototype,
   );
   addInjectionRequest(targetPrototype, injectionPrototype, request);
 }

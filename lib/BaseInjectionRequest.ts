@@ -13,7 +13,7 @@ export default class BaseInjectionRequest {
   constructor(propertyKey: string, targetPrototype) {
     if (typeof targetPrototype === "function") {
       throw new Error(
-        `Should pass the prototype for the target '${targetPrototype.name}', not its constructor!`
+        `Should pass the prototype for the target '${targetPrototype.name}', not its constructor!`,
       );
     }
 

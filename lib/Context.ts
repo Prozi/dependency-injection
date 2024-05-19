@@ -68,7 +68,7 @@ export default class DependencyInjectionContext {
         r.request,
         r.instance,
         this.providedDependencies,
-        strict
+        strict,
       );
     }
   }

@@ -13,7 +13,7 @@ export default class DependencyInjector {
     const prototype: typeof instance = Object.getPrototypeOf(instance);
     const requests: InjectionRequest[] = Reflect.getMetadata(
       DependencyInjector.DEP_INJ_REQUESTS_KEY,
-      prototype
+      prototype,
     );
 
     return requests || [];
@@ -23,7 +23,7 @@ export default class DependencyInjector {
     request: InjectionRequest,
     providedInstance: ProvidedDependency,
     deps: ProvidedDependency[],
-    strict: boolean
+    strict: boolean,
   ): void {
     const matchingDI: ProvidedDependency[] = [];
 
@@ -44,7 +44,7 @@ export default class DependencyInjector {
     // Throw an error if more than one dependency matches the request, as the context is ambiguous.
     if (matchingDI.length > 1) {
       throw new Error(
-        `Ambiguous context with ${matchingDI.length} matching dependencies.`
+        `Ambiguous context with ${matchingDI.length} matching dependencies.`,
       );
     }
 

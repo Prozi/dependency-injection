@@ -18,7 +18,7 @@ export default class PrototypeInjectionRequest
       throw new Error(
         "Should pass the prototype for the value '" +
           valuePrototype.name +
-          "', not its constructor!"
+          "', not its constructor!",
       );
     }
     super(propertyKey, targetPrototype);

@@ -20,7 +20,7 @@ export default class NamedInjectionRequest
       throw new Error(
         "Should pass the prototype for the value '" +
           valuePrototype.name +
-          "', not its constructor!"
+          "', not its constructor!",
       );
     }
 

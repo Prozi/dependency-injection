@@ -24,7 +24,7 @@ export default class Injectable<T> {
 
   public static getInjectable<A>(factory: new () => A): Injectable<A> {
     const matching = Injectable.classes.filter(
-      (currentInjectable) => currentInjectable.factory === factory
+      (currentInjectable) => currentInjectable.factory === factory,
     );
 
     if (matching.length === 0) {
