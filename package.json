@@ -1,6 +1,6 @@
 {
   "name": "@jacekpietal/dependency-injection",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "author": "Tom Guillermin <tom@tomsdev.com>",
   "description": "Dependency Injection using eye-candy TypeScript decorators.",
   "main": "build/index.js",
@@ -20,7 +20,7 @@
   "scripts": {
     "prebuild": "rm -rf build",
     "build": "tsc --build tsconfig.json",
-    "postbuild": "find build -name '*.d.ts' -delete",
+    "postbuild": "find build -name '*.map' -delete",
     "test": "tsc --build tsconfig.test.json && mocha build/test",
     "format": "yarn prettier `find ./lib -name '*.ts'` --write",
     "format-test": "yarn prettier `find ./test -name '*.ts'` --write"
