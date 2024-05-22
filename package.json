@@ -1,6 +1,6 @@
 {
   "name": "@pietal.dev/dependency-injection",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "author": "Tom Guillermin <tom@tomsdev.com>",
   "description": "Dependency Injection for TypeScript/es6 classes",
   "main": "dist/index.js",
@@ -24,7 +24,7 @@
     "test": "tsc --build tsconfig.test.json && mocha dist/test",
     "format": "yarn prettier `find src -name '*.ts'` --write",
     "format-test": "yarn prettier `find test -name '*.ts'` --write",
-    "precommit": "yarn format && yarn format-test"
+    "precommit": "yarn format && yarn format-test && yarn build"
   },
   "engines": {
     "node": ">= 0.10.0"

@@ -1,5 +1,5 @@
 /*!
- * @jacekpietal/dependency-injection
+ * @pietal.dev/dependency-injection
  * MIT Licensed
  */
 

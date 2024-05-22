@@ -11,7 +11,7 @@ This TypeScript library allows you to easily declare and resolve dependencies, i
 
 ## Usage example
 ```typescript
-import { Injectable, Inject } from '@jacekpietal/dependency-injection'
+import { Injectable, Inject } from '@pietal.dev/dependency-injection'
 
 @Injectable
 class TestService {
@@ -60,13 +60,13 @@ Dependency injection will allow me to have a clean and unified syntax for both r
 First you have to install the library:
 
 ```bash
-$ yarn add @jacekpietal/dependency-injection -D
+$ yarn add @pietal.dev/dependency-injection -D
 ```
 
 Then import the library in your TypeScript code using:
 
 ```TypeScript
-import DI from '@jacekpietal/dependency-injection'
+import DI from '@pietal.dev/dependency-injection'
 ```
 
 ### Manual context resolution
