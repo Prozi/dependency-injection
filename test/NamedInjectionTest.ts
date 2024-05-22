@@ -1,5 +1,6 @@
 import chai from "chai";
 import sinon from "sinon";
+
 import * as DI from "../index";
 
 const assert = chai.assert;
@@ -128,7 +129,7 @@ describe("NamedInjection unit test", () => {
 
     assert.isTrue(
       fakeCallback.calledOnce,
-      "fakeCallback is called through attr3"
+      "fakeCallback is called through attr3",
     );
   });
 

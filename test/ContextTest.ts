@@ -1,4 +1,5 @@
 import chai from "chai";
+
 import * as DI from "../index";
 
 const assert = chai.assert;

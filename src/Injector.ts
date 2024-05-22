@@ -1,4 +1,5 @@
 import "reflect-metadata";
+
 import InjectionRequest from "./InjectionRequest";
 import ProvidedDependency from "./ProvidedDependency";
 

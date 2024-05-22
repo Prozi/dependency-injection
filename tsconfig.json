@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "noImplicitAny": false,
-    "outDir": "./build",
+    "outDir": "./dist",
     "sourceMap": true,
     "target": "ES6",
     "declaration": true,
@@ -11,5 +11,5 @@
     "esModuleInterop": true
   },
   "files": ["index.ts"],
-  "include": ["lib/**.ts", "lib/annotations/**.ts"]
+  "include": ["src/**.ts", "src/annotations/**.ts"]
 }

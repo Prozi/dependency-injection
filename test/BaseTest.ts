@@ -1,5 +1,6 @@
 import chai from "chai";
-import { Injectable, Inject } from "../lib/DI";
+
+import { Inject, Injectable } from "../src/DI";
 
 const assert = chai.assert;
 

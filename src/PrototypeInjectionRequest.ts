@@ -1,5 +1,5 @@
-import InjectionRequest from "./InjectionRequest";
 import BaseInjectionRequest from "./BaseInjectionRequest";
+import InjectionRequest from "./InjectionRequest";
 import ProvidedDependency from "./ProvidedDependency";
 
 /**

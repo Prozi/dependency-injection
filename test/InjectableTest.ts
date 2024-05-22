@@ -1,4 +1,5 @@
 import chai from "chai";
+
 import * as DI from "../index";
 
 const assert = chai.assert;
@@ -42,12 +43,12 @@ describe("Injectable unit test", () => {
           const a = new test.MyClass();
           assert.isTrue(
             Object.keys(a).indexOf("attr") === -1,
-            "The key is not set yet"
+            "The key is not set yet",
           );
           a.attr; // trigger the loading
           assert.isTrue(
             Object.keys(a).indexOf("attr") !== -1,
-            "The key is set"
+            "The key is set",
           );
         });
 
@@ -76,7 +77,7 @@ describe("Injectable unit test", () => {
           a.attr; // just to trigger the getter
           assert.isTrue(
             Object.keys(a).indexOf("attr") === -1,
-            "Object.keys(a) does not contain the key 'attr'"
+            "Object.keys(a) does not contain the key 'attr'",
           );
         });
       });

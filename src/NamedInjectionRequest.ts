@@ -1,7 +1,7 @@
-import ProvidedDependency from "./ProvidedDependency";
-import NamedProvidedDependency from "./NamedProvidedDependency";
-import InjectionRequest from "./InjectionRequest";
 import BaseInjectionRequest from "./BaseInjectionRequest";
+import InjectionRequest from "./InjectionRequest";
+import NamedProvidedDependency from "./NamedProvidedDependency";
+import ProvidedDependency from "./ProvidedDependency";
 
 /**
  * This class represents an injection request based on the prototype.

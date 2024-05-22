@@ -1,29 +1,30 @@
 {
-  "name": "@jacekpietal/dependency-injection",
+  "name": "@pietal.dev/dependency-injection",
   "version": "1.4.2",
   "author": "Tom Guillermin <tom@tomsdev.com>",
-  "description": "Dependency Injection using eye-candy TypeScript decorators.",
-  "main": "build/index.js",
-  "typings": "build/index.d.ts",
+  "description": "Dependency Injection for TypeScript/es6 classes",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "dependencies": {
     "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "^20.12.12",
-    "chai": "^5.1.1",
+    "chai": "^4",
     "mocha": "^10.4.0",
     "prettier": "^3.2.5",
     "sinon": "^18.0.0",
     "typescript": "^5.4.5"
   },
   "scripts": {
-    "prebuild": "rm -rf build",
+    "prebuild": "rm -rf dist",
     "build": "tsc --build tsconfig.json",
-    "postbuild": "find build -name '*.map' -delete",
-    "test": "tsc --build tsconfig.test.json && mocha build/test",
-    "format": "yarn prettier `find ./lib -name '*.ts'` --write",
-    "format-test": "yarn prettier `find ./test -name '*.ts'` --write"
+    "postbuild": "find dist -name '*.map' -delete",
+    "test": "tsc --build tsconfig.test.json && mocha dist/test",
+    "format": "yarn prettier `find src -name '*.ts'` --write",
+    "format-test": "yarn prettier `find test -name '*.ts'` --write",
+    "precommit": "yarn format && yarn format-test"
   },
   "engines": {
     "node": ">= 0.10.0"
@@ -42,6 +43,6 @@
   ],
   "files": [
     "README.md",
-    "build/"
+    "dist/"
   ]
 }

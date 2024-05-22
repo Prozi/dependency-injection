@@ -1,8 +1,8 @@
-import DependencyInjector from "./Injector";
-import ProvidedDependency from "./ProvidedDependency";
-import PrototypeProvidedDependency from "./PrototypeProvidedDependency";
-import NamedProvidedDependency from "./NamedProvidedDependency";
 import InjectionRequest from "./InjectionRequest";
+import DependencyInjector from "./Injector";
+import NamedProvidedDependency from "./NamedProvidedDependency";
+import PrototypeProvidedDependency from "./PrototypeProvidedDependency";
+import ProvidedDependency from "./ProvidedDependency";
 
 /**
  * Data class to hold the link between request and instance

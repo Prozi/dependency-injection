@@ -5,4 +5,4 @@
 
 "use strict";
 
-export * from "./lib/DI";
+export * from "./src/DI";
