@@ -1,6 +1,7 @@
 # TypeScript dependency injection library
 
-[<img src="https://img.shields.io/circleci/build/github/Prozi/dependency-injection/main?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/Prozi/dependency-injection)
+[<img src="https://img.shields.io/npm/v/@pietal.dev/dependency-injection?style=for-the-badge&color=success" alt="npm version" />](https://www.npmjs.com/package/@pietal.dev/dependency-injection?activeTab=versions)
+[<img src="https://img.shields.io/circleci/build/github/Prozi/dependency-injection/master?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/Prozi/dependency-injection)
 
 This TypeScript library allows you to easily declare and resolve dependencies, injecting them in your classes attributes, using eye-candy TypeScript annotations.
 

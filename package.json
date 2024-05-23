@@ -1,7 +1,10 @@
 {
   "name": "@pietal.dev/dependency-injection",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "author": "Tom Guillermin <tom@tomsdev.com>",
+  "maintainers": [
+    "Jacek Pietal <github.com/Prozi>"
+  ],
   "description": "Dependency Injection for TypeScript/es6 classes",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
