@@ -1,6 +1,6 @@
 # TypeScript dependency injection library
 
-[![Build Status](https://travis-ci.org/toms-dev/TypeScriptDependencyInjection.svg?branch=master)](https://travis-ci.org/toms-dev/TypeScriptDependencyInjection)
+[<img src="https://img.shields.io/circleci/build/github/Prozi/dependency-injection/main?style=for-the-badge" alt="build status" />](https://app.circleci.com/pipelines/github/Prozi/dependency-injection)
 
 This TypeScript library allows you to easily declare and resolve dependencies, injecting them in your classes attributes, using eye-candy TypeScript annotations.
 
