@@ -3,7 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DirectLoad = exports.Inject = exports.NamedInjection = exports.Injection = void 0;
+exports.Injection = Injection;
+exports.NamedInjection = NamedInjection;
+exports.Inject = Inject;
+exports.DirectLoad = DirectLoad;
 require("reflect-metadata");
 const Config_1 = __importDefault(require("../Config"));
 const Injectable_1 = __importDefault(require("../Injectable"));
@@ -14,14 +17,12 @@ function Injection(typeToInject) {
         addPrototypeInjectionRequest(target, typeToInject.prototype, propertyKey);
     };
 }
-exports.Injection = Injection;
 function NamedInjection(name, typeToInject) {
     const proto = typeToInject ? typeToInject.prototype : null;
     return function (target, propertyKey) {
         addNamedInjectionRequest(target, name, propertyKey, proto);
     };
 }
-exports.NamedInjection = NamedInjection;
 function Inject(dependencyClass) {
     if (!dependencyClass)
         throw new Error("Missing parameter!");
@@ -54,7 +55,6 @@ function Inject(dependencyClass) {
         return prototype;
     };
 }
-exports.Inject = Inject;
 function autoLoadInjectors(target, proto) {
     Reflect.defineMetadata("isInjected", true, proto);
     const singletonInjectors = Reflect.getOwnMetadata("singletonInjectors", proto) || [];
@@ -89,7 +89,6 @@ function DirectLoad(constructor) {
     wrapper.prototype = proto;
     return wrapper;
 }
-exports.DirectLoad = DirectLoad;
 function addInjectionRequest(targetPrototype, injectionPrototype, request) {
     const protoName = targetPrototype.constructor.name;
     const injectionName = injectionPrototype
