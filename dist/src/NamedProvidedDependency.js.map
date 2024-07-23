@@ -1,0 +1,1 @@
+{"version":3,"file":"NamedProvidedDependency.js","sourceRoot":"","sources":["../../src/NamedProvidedDependency.ts"],"names":[],"mappings":";;;;;AAAA,8EAAsD;AAEtD,MAAqB,uBAAwB,SAAQ,4BAAkB;IAGrE,YAAY,QAAa,EAAE,IAAY;QACrC,KAAK,CAAC,QAAQ,CAAC,CAAC;QAChB,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;IACnB,CAAC;IAED,OAAO;QACL,OAAO,IAAI,CAAC,IAAI,CAAC;IACnB,CAAC;CACF;AAXD,0CAWC"}
