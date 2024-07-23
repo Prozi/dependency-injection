@@ -1,13 +1,13 @@
 {
   "name": "@pietal.dev/dependency-injection",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "author": "Tom Guillermin <tom@tomsdev.com>",
   "maintainers": [
     "Jacek Pietal <github.com/Prozi>"
   ],
   "description": "Dependency Injection for TypeScript/es6 classes",
   "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "dependencies": {
     "reflect-metadata": "^0.2.2"
   },
@@ -46,6 +46,7 @@
   "files": [
     "README.md",
     "dist/",
-    "src/"
+    "src/",
+    "index.ts"
   ]
 }
