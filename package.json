@@ -1,6 +1,6 @@
 {
   "name": "@pietal.dev/dependency-injection",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "author": "Tom Guillermin <tom@tomsdev.com>",
   "maintainers": [
     "Jacek Pietal <github.com/Prozi>"
@@ -45,6 +45,7 @@
   ],
   "files": [
     "README.md",
-    "dist/"
+    "dist/",
+    "src/"
   ]
 }
